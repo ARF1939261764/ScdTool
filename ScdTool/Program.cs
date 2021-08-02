@@ -29,13 +29,32 @@ namespace ScdTool
             if (args.Length < 1)
             {
                 Console.WriteLine("please enter script file");
+                Console.ReadKey();
                 return;
             }
             string str = ScriptLib + File.ReadAllText(args[0]);
             var syntaxTree = CSharpSyntaxTree.ParseText(str);
             Type type = CompileType("Program", syntaxTree);
+            if (type == null)
+            {
+                Console.WriteLine("Compile fail");
+                Console.ReadKey();
+                return;
+            }
             MethodInfo methodInfo = type.GetMethod("Main");
+            if (methodInfo == null)
+            {
+                Console.WriteLine("No \"Main\" function was found");
+                Console.ReadKey();
+                return;
+            }
             var inst = Activator.CreateInstance(type);
+            if (inst == null)
+            {
+                Console.WriteLine("Failed to instantiate");
+                Console.ReadKey();
+                return;
+            }
             methodInfo.Invoke(inst, new object[] { new string[] { "hello world" } });
         }
         private static Type CompileType(string originalClassName, SyntaxTree syntaxTree)
