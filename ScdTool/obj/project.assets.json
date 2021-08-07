@@ -2779,6 +2779,7 @@
   },
   "packageFolders": {
     "C:\\Users\\19392\\.nuget\\packages\\": {},
+    "D:\\MyProgram\\Devexpress\\Offline Packages": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
@@ -2791,11 +2792,12 @@
       "outputPath": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\ScdTool\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "D:\\MyProgram\\Devexpress\\Offline Packages",
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\19392\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2804,7 +2806,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "D:\\MyProgram\\Devexpress\\Components\\System\\Components\\Packages": {},
+        "D:\\MyProgram\\Devexpress\\System\\Components\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

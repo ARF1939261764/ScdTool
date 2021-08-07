@@ -71,3 +71,4 @@ D:\MyData\BackupFile\Importance\MyCode\project\10_ScdTool\ScdTool\ScdTool\bin\De
 D:\MyData\BackupFile\Importance\MyCode\project\10_ScdTool\ScdTool\ScdTool\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 D:\MyData\BackupFile\Importance\MyCode\project\10_ScdTool\ScdTool\ScdTool\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
 D:\MyData\BackupFile\Importance\MyCode\project\10_ScdTool\ScdTool\ScdTool\obj\Debug\netcoreapp3.1\ScdTool.csproj.CoreCompileInputs.cache
+D:\MyData\BackupFile\Importance\MyCode\project\10_ScdTool\ScdTool\ScdTool\obj\Debug\netcoreapp3.1\ScdTool.csprojAssemblyReference.cache

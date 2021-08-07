@@ -7,6 +7,8 @@ using Microsoft.CodeAnalysis.CSharp;
 using FTD2XX_NET;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
+using ScdFtd2xxLib;
+using static FTD2XX_NET.FTDI;
 
 namespace ScdTool
 {
