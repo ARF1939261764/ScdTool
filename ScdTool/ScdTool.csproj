@@ -6,6 +6,10 @@
     <ApplicationIcon>STM32CubeMX.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="FTD2XX.Net" Version="1.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.10.0" />

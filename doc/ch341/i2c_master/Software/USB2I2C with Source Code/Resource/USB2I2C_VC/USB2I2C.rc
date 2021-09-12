@@ -1,0 +1,337 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\USB2I2C.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\USB2I2C.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 USB2I2C"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,13,15,20,20
+    LTEXT           "USB2I2C 1.1 版",IDC_STATIC,52,15,119,8,SS_NOPREFIX
+    LTEXT           "版权所有USBIO TECH. (C) 2001-2005",IDC_STATIC,39,29,135,
+                    8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_DLGOTHER DIALOG DISCARDABLE  0, 0, 297, 266
+STYLE DS_MODALFRAME | WS_POPUP | WS_DISABLED | WS_CAPTION
+CAPTION "24系列 小容量EEPROM配置"
+FONT 10, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_I2CDEVADD,94,35,79,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_I2CDATAADD,94,67,79,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_I2CDATA,94,92,79,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Read",IDC_BUTTON_I2CREAD,88,117,40,12
+    PUSHBUTTON      "Write",IDC_BUTTON_I2CWRITE,133,117,40,12
+    GROUPBOX        "API=USBIO_ReadI2C/USBIO_WriteI2C,从EEPROM读写一个字节数据",
+                    IDC_STATIC,28,20,240,178
+    CONTROL         "设备地址",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,39,39,45,8
+    CONTROL         "数据单元地址",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,39,70,52,10
+    CONTROL         "数据",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,
+                    39,94,29,11
+    LTEXT           "** 设备地址一般是50H，A2=A1=A0=GND",IDC_STATIC,40,52,
+                    152,10
+    LTEXT           "** 仅适用于24C01,24C02,24C04,24C08,24C16",IDC_STATIC,41,
+                    145,182,10
+    LTEXT           "** 配置芯片中的内容请参考USB2I2C手册中的说明",
+                    IDC_STATIC,41,156,182,10
+    LTEXT           "** API=USBIO_ReadI2C和USBIO_WriteI2C",IDC_STATIC,41,167,
+                    182,10
+END
+
+IDD_DLGI2C2 DIALOG DISCARDABLE  0, 0, 307, 286
+STYLE DS_MODALFRAME | WS_POPUP | WS_DISABLED | WS_CAPTION
+CAPTION "I2C/TWI 两线串口读写"
+FONT 10, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_I2CSWRLEN,61,40,69,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_I2CSWRDATA,61,60,207,38,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "Read/Write",IDC_SEND,213,35,53,17
+    EDITTEXT        IDC_EDIT_I2CSRDLEN,61,140,69,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_I2CSRDDATA,61,160,207,38,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    GROUPBOX        "写入数据",IDC_STATIC,32,22,242,92
+    LTEXT           "长度",IDC_STATIC,39,42,16,8
+    LTEXT           "数据",IDC_STATIC,39,60,16,9
+    GROUPBOX        "读入数据",IDC_STATIC,32,125,242,87
+    LTEXT           "长度",IDC_STATIC,39,142,16,8
+    LTEXT           "数据",IDC_STATIC,39,160,16,9
+    GROUPBOX        "API=USBIO_StreamI2C,以流模式读写兼容I2C的两线同步串口",
+                    IDC_STATIC,15,8,277,248
+    LTEXT           "(<400H)",IDC_STATIC,133,42,35,9
+    LTEXT           "(<400H)",IDC_STATIC,133,141,51,9
+END
+
+IDD_EEPROMRW DIALOG DISCARDABLE  0, 0, 307, 274
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "24全系列EEPROM读写"
+FONT 10, "宋体"
+BEGIN
+    GROUPBOX        "EEPROM型号",IDC_STATIC,11,11,55,247
+    EDITTEXT        IDC_WDateAddr,80,30,86,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WDateLen,80,57,85,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WDateBuf,80,83,205,42,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "Write",IDC_WrDate,222,57,41,13
+    EDITTEXT        IDC_RDateAddr,80,156,86,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RDateLen,80,182,85,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Read",IDC_RdDate,222,182,41,13
+    LTEXT           "数据单元起始地址",IDC_STATIC,80,21,85,8
+    LTEXT           "写入长度",IDC_STATIC,80,46,43,8
+    LTEXT           "多个数据（16进制，两字符一组）",IDC_STATIC,80,73,133,8
+    GROUPBOX        "API=USBIO_WriteEEPROM,写入数据到EEPROM",IDC_STATIC,72,
+                    11,223,121
+    EDITTEXT        IDC_RDateBuf,80,209,207,42,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "数据单元起始地址",IDC_STATIC,80,147,86,8
+    LTEXT           "读取长度",IDC_STATIC,80,172,43,8
+    LTEXT           "多个数据（16进制，两字符一组）",IDC_STATIC,80,198,132,8
+    GROUPBOX        "API=USBIO_ReadEEPROM,从EEPROM读出数据",IDC_STATIC,72,
+                    137,223,121
+    CONTROL         "24C01",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,13,23,48,8
+    CONTROL         "24C02",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,13,41,48,
+                    8
+    CONTROL         "24C04",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,13,59,48,
+                    8
+    CONTROL         "24C08",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,13,77,48,
+                    8
+    CONTROL         "24C16",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,13,95,48,
+                    8
+    CONTROL         "24C32",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,13,113,48,
+                    8
+    CONTROL         "24C64",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,13,131,48,
+                    8
+    CONTROL         "24C128",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,13,149,
+                    48,8
+    CONTROL         "24C256",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,13,167,
+                    48,8
+    CONTROL         "24C512",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,13,185,
+                    48,8
+    CONTROL         "24C1024",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,13,203,
+                    48,8
+    CONTROL         "24C2048",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,13,221,
+                    48,8
+    CONTROL         "24C4096",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,13,239,
+                    48,8
+    LTEXT           "(<400H)",IDC_STATIC,168,60,51,9
+    LTEXT           "(<400H)",IDC_STATIC,167,184,51,9
+END
+
+IDD_USB2I2C_DIALOG DIALOG DISCARDABLE  0, 0, 281, 210
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "USB2I2C DEMO   WWW.USB-I2C-SPI.COM"
+FONT 10, "System"
+BEGIN
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,2,0,0
+ PRODUCTVERSION 1,2,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "USB2I2C Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 2, 0, 0\0"
+            VALUE "InternalName", "USB2I2C\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "USB2I2C.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "USB2I2C 应用程序\0"
+            VALUE "ProductVersion", "1, 2, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DLGOTHER, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 290
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 259
+    END
+
+    IDD_DLGI2C2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 275
+    END
+
+    IDD_EEPROMRW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 267
+    END
+
+    IDD_USB2I2C_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 201
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 USB2I2C(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\USB2I2C.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

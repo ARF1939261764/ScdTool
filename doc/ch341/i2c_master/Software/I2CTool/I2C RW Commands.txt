@@ -1,0 +1,42 @@
+/********************************************************/
+
+8 Bits Chip I2C Slave Address: 7 bit + R/W
+
+Example:
+
+24C02 A2,A1,A0 connect to GND, then i2c address is
+
+1010 000 R/W   Chipid is A0
+
+/*--------------------------------------------------*/
+
+
+/*I2C R/W Commands:*/
+
+	Read Cmd : i2cr i2cr16
+	Write Cmd : i2cw i2cw16
+
+	Format£º
+
+	i2cr[16] Address SubAddress [length] [depth]
+	i2cw[16] Address SubAddress data [mask]
+
+Example£º
+
+	1. 8 bits sub address width
+   	i2cr 86 f4 
+   	i2cr 86 f4 23
+   	i2cr 86 f4 1 ff
+
+  	i2cw 86 f4 5
+   	i2cw 86 f4 5 fa
+
+	2. 16 bits sub address width
+   	i2cr16 b2 6100 
+   	i2cr16 b2 6100 23
+   	i2cr16 b2 6100 1 ff
+
+   	i2cw16 b2 6100 5
+   	i2cw16 b2 6100 5 fa
+
+/********************************************************/

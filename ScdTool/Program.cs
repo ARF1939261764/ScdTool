@@ -9,12 +9,13 @@ using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 using ScdFtd2xxLib;
 using static FTD2XX_NET.FTDI;
+using System.Threading.Tasks;
 
 namespace ScdTool
 {
     class Program
     {
-        static string ScriptLib = "using ScdFtd2xxLib;using static FTD2XX_NET.FTDI;";
+        static string ScriptLib = "using ScdTool;using CH341Lib;using ScdFtd2xxLib;using static FTD2XX_NET.FTDI;";
         static void Main(string[] args)
         {
             if (args.Length < 1)
@@ -25,7 +26,18 @@ namespace ScdTool
             }
             string str = ScriptLib + File.ReadAllText(args[0]);
             ScriptOptions options = ScriptOptions.Default.AddReferences(typeof(ScdFtd2xxLib.ScdFtd2xx).Assembly);
-            CSharpScript.RunAsync(str, options);
+            try
+            {
+                Task<ScriptState<object>> State = CSharpScript.RunAsync(str, options);
+                if (!State.IsCompletedSuccessfully)
+                {
+                    Console.WriteLine("Error:" + State.Exception.Message);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

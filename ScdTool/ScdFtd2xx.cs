@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.Threading;
 using FTD2XX_NET;
 using static FTD2XX_NET.FTDI;
+using ScdTool;
 
 namespace ScdFtd2xxLib
 {
-    public class ScdFtd2xx
+    public class ScdFtd2xx: IIIC
     {
         const double FTDI_CLOCK_FRE = 60e6;
         const byte MSB_FALLING_EDGE_CLOCK_BYTE_OUT = 0x11;
@@ -272,11 +273,11 @@ namespace ScdFtd2xxLib
         {
             return I2CWrite(true, true, SlvAddr, TxBuff, Length);
         }
-        public FT_STATUS I2CWriteWitoutStop(byte[] TxBuff, int Length)
+        public FT_STATUS I2CWriteWithoutStop(byte[] TxBuff, int Length)
         {
             return I2CWrite(false, false, 0, TxBuff, Length);
         }
-        public FT_STATUS I2CWriteWitoutStop(byte SlvAddr, byte[] TxBuff, int Length)
+        public FT_STATUS I2CWriteWithoutStop(byte SlvAddr, byte[] TxBuff, int Length)
         {
             return I2CWrite(true, false, SlvAddr, TxBuff, Length);
         }
@@ -403,6 +404,60 @@ namespace ScdFtd2xxLib
         {
             return JTAGWriteReadShiftReg(0, DRLength, TxBuff);
         }
-
+        bool IIIC.Open(uint idx)
+        {
+            FT_STATUS Status;
+            Status = Open(idx);
+            return Status == FT_STATUS.FT_OK ? true : false;
+        }
+        bool IIIC.Close()
+        {
+            FT_STATUS Status;
+            Status = Close();
+            return Status == FT_STATUS.FT_OK ? true : false;
+        }
+        bool IIIC.Init(double Baudrate)
+        {
+            FT_STATUS Status;
+            Status = I2CInit(Baudrate);
+            return Status == FT_STATUS.FT_OK ? true : false;
+        }
+        bool IIIC.SetBaudrate(double Baudrate)
+        {
+            FT_STATUS Status;
+            Status = I2CSetBaudrate(Baudrate);
+            return Status == FT_STATUS.FT_OK ? true : false;
+        }
+        bool IIIC.Write(byte SlvAddr, byte[] TxBuff, int Length)
+        {
+            FT_STATUS Status;
+            Status = I2CWrite(SlvAddr, TxBuff, Length);
+            return Status == FT_STATUS.FT_OK ? true : false;
+        }
+        bool IIIC.Write(byte SlvAddr, byte data)
+        {
+            FT_STATUS Status;
+            Status = I2CWrite(SlvAddr, new byte[1] {data }, 1);
+            return Status == FT_STATUS.FT_OK ? true : false;
+        }
+        byte[] IIIC.Read(byte SlvAddr, int Length)
+        {
+            return I2CRead(SlvAddr, Length);
+        }
+        byte IIIC.Read(byte SlvAddr)
+        {
+            byte[] buff;
+            buff = I2CRead(SlvAddr, 1);
+            return (byte)(buff == null ? 0x00 : buff[0]);
+        }
+        string[] IIIC.GetDeviceList()
+        {
+            return GetDeviceList();
+        }
+        byte[] IIIC.WriteWithRead(byte SlvAddr, byte[] TxBuff, int TxLength, int RxLength)
+        {
+            I2CWriteWithoutStop(SlvAddr, TxBuff, TxLength);
+            return I2CRead(SlvAddr, RxLength);
+        }
     }
 }
