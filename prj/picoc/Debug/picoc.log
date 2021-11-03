@@ -1,0 +1,28 @@
+﻿  clibrary.c
+  ctype.c
+  errno.c
+  math.c
+  stdbool.c
+  stdio.c
+  stdlib.c
+  string.c
+  time.c
+  debug.c
+  expression.c
+  heap.c
+  include.c
+  lex.c
+  parse.c
+  picoc.c
+  platform.c
+  library_msvc.c
+  platform_msvc.c
+  iic.c
+  正在生成代码...
+  正在编译...
+  table.c
+  type.c
+  variable.c
+  正在生成代码...
+    正在创建库 D:\MyData\BackupFile\Importance\MyCode\project\10_ScdTool\ScdTool\prj\Debug\picoc.lib 和对象 D:\MyData\BackupFile\Importance\MyCode\project\10_ScdTool\ScdTool\prj\Debug\picoc.exp
+  picoc.vcxproj -> D:\MyData\BackupFile\Importance\MyCode\project\10_ScdTool\ScdTool\prj\Debug\picoc.dll

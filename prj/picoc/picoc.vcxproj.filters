@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\picoc\cstdlib\ctype.c" />
+    <ClCompile Include="src\picoc\cstdlib\errno.c" />
+    <ClCompile Include="src\picoc\cstdlib\math.c" />
+    <ClCompile Include="src\picoc\cstdlib\stdbool.c" />
+    <ClCompile Include="src\picoc\cstdlib\stdio.c" />
+    <ClCompile Include="src\picoc\cstdlib\stdlib.c" />
+    <ClCompile Include="src\picoc\cstdlib\string.c" />
+    <ClCompile Include="src\picoc\cstdlib\time.c" />
+    <ClCompile Include="src\picoc\platform\library_msvc.c" />
+    <ClCompile Include="src\picoc\platform\platform_msvc.c" />
+    <ClCompile Include="src\picoc\clibrary.c" />
+    <ClCompile Include="src\picoc\debug.c" />
+    <ClCompile Include="src\picoc\expression.c" />
+    <ClCompile Include="src\picoc\heap.c" />
+    <ClCompile Include="src\picoc\include.c" />
+    <ClCompile Include="src\picoc\lex.c" />
+    <ClCompile Include="src\picoc\parse.c" />
+    <ClCompile Include="src\picoc\picoc.c" />
+    <ClCompile Include="src\picoc\platform.c" />
+    <ClCompile Include="src\picoc\table.c" />
+    <ClCompile Include="src\picoc\type.c" />
+    <ClCompile Include="src\picoc\variable.c" />
+    <ClCompile Include="src\picoc\scdlib\iic\iic.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\picoc\interpreter.h" />
+    <ClInclude Include="src\picoc\picoc.h" />
+    <ClInclude Include="src\picoc\platform.h" />
+    <ClInclude Include="src\export\export.h" />
+    <ClInclude Include="src\picoc\scdlib\iic\iic.h" />
+  </ItemGroup>
+</Project>

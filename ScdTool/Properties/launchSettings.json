@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "ScdTool": {
-      "commandName": "Project",
-      "commandLineArgs": "main.cs"
-    }
-  }
-}
