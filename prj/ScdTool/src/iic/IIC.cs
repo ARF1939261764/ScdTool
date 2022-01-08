@@ -44,7 +44,7 @@ namespace ScdTool
                     {
                         DeviceObjectType = deviceObject,
                         Name = item,
-                        Index = index
+                        Index = index++
                     });
                 }
             }

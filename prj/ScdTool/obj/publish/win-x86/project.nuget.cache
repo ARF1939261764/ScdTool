@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h/ulDQ9wy3ie6mnz8KSaRQGApsN5jXO3EMg7Y+wg1uy0E30d+pY0JXBXsJC9QngvzUakOpnaK7B1L2kI+UrMxg==",
+  "dgSpecHash": "m7OTgUMT5+B4dXSsBc4pdujIbvZtek3uNc5qUILIRK21rjHr+5aZbcCFY/3VmCFBbkwcGK+c9tCy2V7bRTTPQA==",
   "success": true,
-  "projectFilePath": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\ScdTool\\ScdTool.csproj",
+  "projectFilePath": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\prj\\ScdTool\\ScdTool.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\19392\\.nuget\\packages\\ftd2xx.net\\1.2.0\\ftd2xx.net.1.2.0.nupkg.sha512",
     "C:\\Users\\19392\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.2\\microsoft.codeanalysis.analyzers.3.3.2.nupkg.sha512",

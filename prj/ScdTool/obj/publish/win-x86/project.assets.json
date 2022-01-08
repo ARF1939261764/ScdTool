@@ -3979,11 +3979,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\ScdTool\\ScdTool.csproj",
+      "projectUniqueName": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\prj\\ScdTool\\ScdTool.csproj",
       "projectName": "ScdTool",
-      "projectPath": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\ScdTool\\ScdTool.csproj",
+      "projectPath": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\prj\\ScdTool\\ScdTool.csproj",
       "packagesPath": "C:\\Users\\19392\\.nuget\\packages\\",
-      "outputPath": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\ScdTool\\obj\\publish\\win-x86\\",
+      "outputPath": "D:\\MyData\\BackupFile\\Importance\\MyCode\\project\\10_ScdTool\\ScdTool\\prj\\ScdTool\\obj\\publish\\win-x86\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\MyProgram\\Devexpress\\Offline Packages",

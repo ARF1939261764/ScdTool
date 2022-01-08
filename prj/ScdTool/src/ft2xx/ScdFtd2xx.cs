@@ -304,7 +304,7 @@ namespace ScdFtd2xxLib
             }
             return Buff;
         }
-        public FT_STATUS JTAGInit(double Baudrate = 100e3)
+        public FT_STATUS JTAGInit(double Baudrate = 1000e3)
         {
             UInt16 Div;
             FT_STATUS status = FT_STATUS.FT_OK;
@@ -426,7 +426,7 @@ namespace ScdFtd2xxLib
         bool IIIC.Write(byte SlvAddr, byte[] Buff, int Length)
         {
             FT_STATUS Status;
-            Status = I2CWrite(SlvAddr, TxBuff, Length);
+            Status = I2CWrite(SlvAddr, Buff, Length);
             return Status == FT_STATUS.FT_OK ? true : false;
         }
         bool IIIC.Write(byte SlvAddr, byte Data)

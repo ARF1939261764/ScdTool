@@ -1,6 +1,7 @@
 #include "../interpreter.h"
 #include "stdint.h"
 #include "../scdlib/iic/iic.h"
+#include "windows.h"
 
 const char *StdIntDefs = "\
 \n\
@@ -82,6 +83,11 @@ typedef unsigned int       uint_fast32_t;\n\
 ";
 const char* ScdToolDef = "#define IIC_DEVICE_NAME_MAX_LEN (512)";
 
+void Scd_Sleep(struct ParseState* Parser, struct Value* ReturnValue, struct Value** Param, int NumArgs)
+{
+    Sleep(Param[0]->Val->Integer);
+}
+
 /* MsvcSetupFunc */
 void MsvcSetupFunc(Picoc *pc)
 {
@@ -94,7 +100,7 @@ struct LibraryFunction MsvcFunctions[] =
     {IIC_CreateDeviceObject, "int IIC_CreateDeviceObject(void);"                                                                           },
     {IIC_SetContext,         "int IIC_SetContext(int DeviceObject);"                                                                       },
     {IIC_GetContext,         "int IIC_GetContext(void);"                                                                                   },
-    {IIC_GetDeviceList,      "int IIC_GetDeviceList(char DeviceList[][IIC_DEVICE_NAME_MAX_LEN] ,uint32_t MaxNumber);"                                                                                    },
+    {IIC_GetDeviceList,      "int IIC_GetDeviceList(void *DeviceList ,uint32_t MaxNumber);"                                                                                    },
     {IIC_OpenByIndex,        "int IIC_OpenByIndex(int Index);"                                                                             },
     {IIC_Open,               "int IIC_Open(char* Name);"                                                                             },
     {IIC_SetBaudrate,        "int IIC_SetBaudrate(double Baudrate);"                                                                       },
@@ -104,6 +110,7 @@ struct LibraryFunction MsvcFunctions[] =
     {IIC_WriteByte,          "int IIC_WriteByte(uint8_t SlvAddr, uint8_t Data);"                                                               },
     {IIC_Write,              "int IIC_Write(uint8_t SlvAddr, uint8_t* Buff, int Length);"                                            },
     {IIC_WriteWithRead,      "int IIC_WriteWithRead(uint8_t SlvAddr, uint8_t* TxBuff, int TxLength, uint8_t* RxBuff, int RxLength);" },
+    {Scd_Sleep,"void Sleep(int);"},
     { NULL,                  NULL                                                                                                          }
 };
 

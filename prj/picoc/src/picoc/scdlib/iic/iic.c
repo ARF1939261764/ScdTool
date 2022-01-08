@@ -31,16 +31,19 @@ void IIC_GetContext(struct ParseState* Parser, struct Value* ReturnValue, struct
 }
 void IIC_GetDeviceList(struct ParseState* Parser, struct Value* ReturnValue, struct Value** Param, int NumArgs)
 {
-	int DeviceObject;
-	ContextHandler(CCmd_GetDeviceList, &DeviceObject);
-	ReturnValue->Val->Integer = DeviceObject;
+	int argv[3];
+	argv[0] = 0;
+	argv[1] = (int)Param[0]->Val->Integer;
+	argv[2] = (int)Param[1]->Val->Integer;
+	ContextHandler(CCmd_GetDeviceList, &argv);
+	ReturnValue->Val->Integer = argv[0];
 }
 
 void IIC_OpenByIndex(struct ParseState* Parser, struct Value* ReturnValue, struct Value** Param, int NumArgs)
 {
 	int argv[2];
 	argv[0] = 0;
-	argv[1] = (int)&Param[0]->Val->Integer;
+	argv[1] = (int)Param[0]->Val->Integer;
 	ContextHandler(CCmd_OpenByIndex, &argv);
 	ReturnValue->Val->Integer = argv[0];
 }
@@ -49,18 +52,18 @@ void IIC_Open(struct ParseState* Parser, struct Value* ReturnValue, struct Value
 {
 	int argv[2];
 	argv[0] = 0;
-	argv[1] = (int)&Param[0]->Val->Character;
+	argv[1] = (int)Param[0]->Val->Pointer;
 	ContextHandler(CCmd_Open, &argv);
 	ReturnValue->Val->Integer = argv[0];
 }
 
 void IIC_SetBaudrate(struct ParseState* Parser, struct Value* ReturnValue, struct Value** Param, int NumArgs)
 {
-	int argv[2];
+	double argv[2];
 	argv[0] = 0;
-	argv[1] = (int)&Param[0]->Val->FP;
+	argv[1] = Param[0]->Val->FP;
 	ContextHandler(CCmd_SetBaudrate, &argv);
-	ReturnValue->Val->Integer = argv[0];
+	ReturnValue->Val->Integer = *(int *)(&argv[0]);
 }
 
 void IIC_Close(struct ParseState* Parser, struct Value* ReturnValue, struct Value** Param, int NumArgs)
@@ -75,8 +78,8 @@ void IIC_ReadByte(struct ParseState* Parser, struct Value* ReturnValue, struct V
 {
 	int argv[3];
 	argv[0] = 0;
-	argv[1] = (int)&Param[0]->Val->UnsignedCharacter;
-	argv[2] = (int)&Param[1]->Val->UnsignedCharacter;
+	argv[1] = Param[0]->Val->UnsignedCharacter;
+	argv[2] = (int)Param[1]->Val->Pointer;
 	ContextHandler(CCmd_ReadByte, &argv);
 	ReturnValue->Val->Integer = argv[0];
 }
@@ -85,9 +88,9 @@ void IIC_Read(struct ParseState* Parser, struct Value* ReturnValue, struct Value
 {
 	int argv[4];
 	argv[0] = 0;
-	argv[1] = (int)&Param[0]->Val->UnsignedCharacter;
-	argv[2] = (int)&Param[1]->Val->UnsignedCharacter;
-	argv[3] = (int)&Param[2]->Val->Integer;
+	argv[1] = (int)Param[0]->Val->UnsignedCharacter;
+	argv[2] = (int)Param[1]->Val->Pointer;
+	argv[3] = (int)Param[2]->Val->Integer;
 	ContextHandler(CCmd_Read, &argv);
 	ReturnValue->Val->Integer = argv[0];
 }
@@ -96,8 +99,8 @@ void IIC_WriteByte(struct ParseState* Parser, struct Value* ReturnValue, struct 
 {
 	int argv[3];
 	argv[0] = 0;
-	argv[1] = (int)&Param[0]->Val->UnsignedCharacter;
-	argv[2] = (int)&Param[1]->Val->UnsignedCharacter;
+	argv[1] = (int)Param[0]->Val->UnsignedCharacter;
+	argv[2] = (int)Param[1]->Val->UnsignedCharacter;
 	ContextHandler(CCmd_WriteByte, &argv);
 	ReturnValue->Val->Integer = argv[0];
 }
@@ -106,9 +109,9 @@ void IIC_Write(struct ParseState* Parser, struct Value* ReturnValue, struct Valu
 {
 	int argv[4];
 	argv[0] = 0;
-	argv[1] = (int)&Param[0]->Val->UnsignedCharacter;
-	argv[2] = (int)&Param[1]->Val->UnsignedCharacter;
-	argv[3] = (int)&Param[2]->Val->Integer;
+	argv[1] = (int)Param[0]->Val->UnsignedCharacter;
+	argv[2] = (int)Param[1]->Val->Pointer;
+	argv[3] = (int)Param[2]->Val->Integer;
 	ContextHandler(CCmd_Write, &argv);
 	ReturnValue->Val->Integer = argv[0];
 }
@@ -117,11 +120,11 @@ void IIC_WriteWithRead(struct ParseState* Parser, struct Value* ReturnValue, str
 {
 	int argv[6];
 	argv[0] = 0;
-	argv[1] = (int)&Param[0]->Val->UnsignedCharacter;
-	argv[2] = (int)&Param[1]->Val->UnsignedCharacter;
-	argv[3] = (int)&Param[2]->Val->Integer;
-	argv[4] = (int)&Param[3]->Val->UnsignedCharacter;
-	argv[5] = (int)&Param[4]->Val->Integer;
+	argv[1] = (int)Param[0]->Val->UnsignedCharacter;
+	argv[2] = (int)Param[1]->Val->Pointer;
+	argv[3] = (int)Param[2]->Val->Integer;
+	argv[4] = (int)Param[3]->Val->Pointer;
+	argv[5] = (int)Param[4]->Val->Integer;
 	ContextHandler(CCmd_WriteWithRead, &argv);
 	ReturnValue->Val->Integer = argv[0];
 }

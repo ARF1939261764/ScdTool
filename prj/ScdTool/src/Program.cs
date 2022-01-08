@@ -13,11 +13,44 @@ using System.Threading.Tasks;
 using static System.Threading.Thread;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ScdTool
 {
     class Program
     {
+        static void RunCmd(string strInput)
+        {
+            Process p = new Process();
+            //设置要启动的应用程序
+            p.StartInfo.FileName = "cmd.exe";
+            //是否使用操作系统shell启动
+            p.StartInfo.UseShellExecute = false;
+            // 接受来自调用程序的输入信息
+            p.StartInfo.RedirectStandardInput = true;
+            //输出信息
+            p.StartInfo.RedirectStandardOutput = true;
+            // 输出错误
+            p.StartInfo.RedirectStandardError = true;
+            //不显示程序窗口
+            p.StartInfo.CreateNoWindow = true;
+            //启动程序
+            p.Start();
+
+            //向cmd窗口发送输入信息
+            p.StandardInput.WriteLine(strInput + "&exit");
+
+            p.StandardInput.AutoFlush = true;
+
+            //获取输出信息
+            string strOuput = p.StandardOutput.ReadToEnd();
+            strOuput += p.StandardError.ReadToEnd();
+            //等待程序执行完退出进程
+            p.WaitForExit();
+            p.Close();
+
+            Console.WriteLine(strOuput);
+        }
         static void CMDHandle_DisplayVersion()
         {
             Console.WriteLine("版本信息:");
@@ -101,7 +134,8 @@ namespace ScdTool
             if (state == 3)
             {
                 CsScript Parser = new CsScript();
-                Parser.run(filelist, argv);
+                RunCmd("ScdTool_V0.5.exe " + filelist[0]);
+                //Parser.run(filelist, argv);
             }
         }
         static void Main(string[] args)

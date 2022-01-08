@@ -2,7 +2,7 @@
   "profiles": {
     "ScdTool": {
       "commandName": "Project",
-      "commandLineArgs": "main.c"
+      "commandLineArgs": "main.cs"
     }
   }
 }

@@ -19,7 +19,7 @@ namespace CH341Lib
             {
                 txbuff[i + 1] = TxBuff[i];
             }
-            
+            CH341DLL.StreamI2C(Index, (uint)(TxLength + 1), txbuff, (uint)RxLength, rxbuff);
             return rxbuff;
         }
         bool IIIC.Close()
@@ -96,7 +96,13 @@ namespace CH341Lib
         }
         bool IIIC.WriteWithRead(byte SlvAddr, byte[] TxBuff, int TxLength, byte[] RxBuff, int RxLength)
         {
-            return CH341DLL.StreamI2C(Index, (uint)(TxLength + 1), TxBuff, (uint)RxLength, RxBuff);
+            byte[] buff;
+            buff = WriteWithRead(SlvAddr,TxBuff,TxLength,RxLength);//CH341DLL.StreamI2C(Index, (uint)(TxLength + 1), TxBuff, (uint)RxLength, RxBuff);
+            for (int i = 0; i < RxLength; i++)
+            {
+                RxBuff[i] = buff[i];
+            }
+            return true;
         }
 
         bool IIIC.Open(int Index)
